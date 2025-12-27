@@ -1,0 +1,115 @@
+/* Tailwind 配置扩展 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义工具类 */
+@layer utilities {
+    .content-auto {
+        content-visibility: auto;
+    }
+    .card-shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    .input-focus {
+        @apply focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none;
+    }
+    .btn-hover {
+        @apply hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
+    }
+}
+
+/* 自定义颜色变量 */
+:root {
+    --color-primary: #3b82f6;
+    --color-secondary: #64748b;
+    --color-accent: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-light: #f8fafc;
+    --color-dark: #1e293b;
+}
+
+/* 基础样式 */
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* 选项卡样式优化 */
+#inputTabs {
+    scrollbar-width: thin;
+}
+
+#inputTabs::-webkit-scrollbar {
+    height: 4px;
+}
+
+#inputTabs::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary)/30;
+    border-radius: 2px;
+}
+
+/* 图表容器样式 */
+#lineChart {
+    transition: all 0.3s ease;
+}
+
+/* 结果卡片悬停效果 */
+.border-gray-200.hover\:border-primary\/50:hover {
+    border-color: var(--color-primary)/50;
+    transition: border-color 0.3s ease;
+}
+
+/* 示例按钮样式 */
+.example-btn {
+    transition: all 0.2s ease;
+}
+
+.example-btn:hover {
+    background-color: var(--color-primary)/5;
+    transform: scale(1.02);
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > div:nth-child(7) {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 > div {
+        grid-column: span 1 !important;
+    }
+    
+    .grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 坐标信息提示框 */
+#coordInfo {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* 公式参考卡片样式 */
+.border-l-4.border-primary.pl-4 {
+    transition: transform 0.2s ease;
+}
+
+.border-l-4.border-primary.pl-4:hover {
+    transform: translateX(4px);
+}
