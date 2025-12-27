@@ -12,21 +12,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-50 min-h-screen font-sans text-dark">
-    <!-- 导航栏 -->
+    <!-- 导航栏修改部分 - 新增菜单ID和状态类 -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fa fa-line-chart text-primary text-2xl"></i>
                 <h1 class="text-xl font-bold text-primary">直线方程工具</h1>
             </div>
-            <div class="hidden md:flex items-center space-x-6">
+            <!-- 桌面端导航链接 -->
+            <div class="hidden md:flex items-center space-x-6" id="desktopNav">
                 <a href="#visualization" class="text-secondary hover:text-primary transition-colors">可视化</a>
                 <a href="#conversion" class="text-secondary hover:text-primary transition-colors">方程转换</a>
                 <a href="#formulas" class="text-secondary hover:text-primary transition-colors">公式参考</a>
             </div>
-            <button class="md:hidden text-secondary text-xl">
+            <!-- 移动端菜单按钮 - 新增ID和点击事件 -->
+            <button class="md:hidden text-secondary text-xl" id="mobileMenuBtn">
                 <i class="fa fa-bars"></i>
             </button>
+        </div>
+        <!-- 新增移动端下拉菜单 -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full left-0 top-full border-t border-gray-100" id="mobileMenu">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#visualization" class="block py-2 text-secondary hover:text-primary transition-colors">可视化</a>
+                <a href="#conversion" class="block py-2 text-secondary hover:text-primary transition-colors">方程转换</a>
+                <a href="#formulas" class="block py-2 text-secondary hover:text-primary transition-colors">公式参考</a>
+            </div>
         </div>
     </nav>
 

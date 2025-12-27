@@ -113,3 +113,36 @@ body {
 .border-l-4.border-primary.pl-4:hover {
     transform: translateX(4px);
 }
+
+/* 新增移动端菜单样式 */
+#mobileMenu {
+    z-index: 40; /* 低于导航栏z-index:50 */
+    transition: all 0.3s ease-in-out;
+    transform-origin: top right;
+    transform: scaleY(0.95);
+    opacity: 0;
+}
+
+#mobileMenu:not(.hidden) {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+#mobileMenu a {
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+#mobileMenu a:last-child {
+    border-bottom: none;
+}
+
+/* 菜单按钮hover效果 */
+#mobileMenuBtn {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+}
+
+#mobileMenuBtn:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+}
